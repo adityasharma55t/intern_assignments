@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <script defer src="./index.js"></script>
     <title>Create Account</title>
 </head>
 
@@ -23,10 +24,16 @@
             <label for="email">Email Address*</label>
             <input type="email" name="email" id="email" required>
             <label for="password">Password*</label>
-            <input type="password" name="password" id="password" required>
+            <div class="passwordContainer">
+                <input type="password" name="password" id="password" required></input>
+                <img id="passwordToggler" src="./assets/eye.svg" alt="password toggler">
+                <img class="hidden" id="exclamationIcon" src="./assets/exclamation.png" alt="exclamation">
+            </div>
             <div class="passwordChecks">
-                <p><img src="./assets/checkmark.png" alt="password status"><span>At least 1 lowercase letter (a...z)</span></p>
-                <p><img src="./assets/checkmark.png" alt="password status"><span>At least 1 uppercase letter (A...Z)</span></p>
+                <p><img src="./assets/close.png" alt="password status"><span>At least 1 lowercase letter (a...z)</span>
+                </p>
+                <p><img src="./assets/close.png" alt="password status"><span>At least 1 uppercase letter (A...Z)</span>
+                </p>
                 <p><img src="./assets/close.png" alt="password status"><span>At least 1 Number (0...9)</span></p>
                 <p><img src="./assets/close.png" alt="password status"><span>At least 1 special character</span></p>
                 <p><img src="./assets/close.png" alt="password status"><span>At least 8 characters in length</span></p>
@@ -44,12 +51,14 @@
                 <div>
                     <img src="./assets/enterprise.svg" alt="Enterprise">Your Enterprise email(SSO)
                 </div>
-                <img src="./assets/right-arrow.svg" alt="arrow"></button>
+                <img src="./assets/right-arrow-accented.svg" alt="arrow">
+            </button>
         </section>
         <hr>
         <section class="altAccessOptions">
             <a href="./reset-password.html">Forgot Password</a>
-            <p>Have an accounnt? <a href="./sign-in">Sign in</a></p>
+            <p class="signUpPrompt"><span>Have an account?</span><a href="./index.html">Sign In <img
+                        src="./assets/right-arrow.svg" alt="arrow"></a></p>
         </section>
     </main>
 </body>
