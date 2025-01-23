@@ -161,3 +161,16 @@ button img {
         visibility: hidden;
     }
 }
+
+@media screen and (min-width: 480px) {
+    body {
+     display: flex;
+    }
+    header{
+        height: 100vh;
+        text-align: center;
+    }
+    h1{
+        margin-top: 35vh;
+    }
+  }
