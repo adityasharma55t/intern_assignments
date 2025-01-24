@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,48 +19,53 @@
         <h1><img src="./assets/star.png" alt="stars">Create an account</h1>
     </header>
     <main>
-        <form class="createAccForm" action="/">
-            <label for="name">Name*</label>
-            <input name="name" type="text" required>
-            <label for="email">Email Address*</label>
-            <input type="email" name="email" id="email" required>
-            <label for="password">Password*</label>
-            <div class="passwordContainer">
-                <input type="password" name="password" id="password" required></input>
-                <img id="passwordToggler" src="./assets/eye.svg" alt="password toggler">
-                <img class="hidden" id="exclamationIcon" src="./assets/exclamation.png" alt="exclamation">
-            </div>
-            <div class="passwordChecks">
-                <p><img src="./assets/close.png" alt="password status"><span>At least 1 lowercase letter (a...z)</span>
-                </p>
-                <p><img src="./assets/close.png" alt="password status"><span>At least 1 uppercase letter (A...Z)</span>
-                </p>
-                <p><img src="./assets/close.png" alt="password status"><span>At least 1 Number (0...9)</span></p>
-                <p><img src="./assets/close.png" alt="password status"><span>At least 1 special character</span></p>
-                <p><img src="./assets/close.png" alt="password status"><span>At least 8 characters in length</span></p>
-            </div>
-            <button class="signUpBtn" type="submit">Get Started Now</button>
-        </form>
-        <div class="divider">
-            <hr>
-            <p> OR </p>
-            <hr>
-        </div>
-        <section class="altLoginOptions">
-            <button type="submit"><img src="./assets/google.png" alt="Google Logo">Continue with Google</button>
-            <button class="enterpriseBtn" type="submit">
-                <div>
-                    <img src="./assets/enterprise.svg" alt="Enterprise">Your Enterprise email(SSO)
+        <div class="content">
+            <form class="createAccForm" action="/">
+                <label for="name">Name*</label>
+                <input name="name" type="text" required>
+                <label for="email">Email Address*</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Password*</label>
+                <div class="passwordContainer">
+                    <input type="password" name="password" id="password" required></input>
+                    <img id="passwordToggler" src="./assets/eye.svg" alt="password toggler">
+                    <img class="hidden" id="exclamationIcon" src="./assets/exclamation.png" alt="exclamation">
                 </div>
-                <img src="./assets/right-arrow-accented.svg" alt="arrow">
-            </button>
-        </section>
-        <hr>
-        <section class="altAccessOptions">
-            <a href="./reset-password.html">Forgot Password</a>
-            <p class="signUpPrompt"><span>Have an account?</span><a href="./index.html">Sign In <img
-                        src="./assets/right-arrow.svg" alt="arrow"></a></p>
-        </section>
+                <div class="passwordChecks hidden">
+                    <p><img src="./assets/close.png" alt="password status"><span>At least 1 lowercase letter
+                            (a...z)</span>
+                    </p>
+                    <p><img src="./assets/close.png" alt="password status"><span>At least 1 uppercase letter
+                            (A...Z)</span>
+                    </p>
+                    <p><img src="./assets/close.png" alt="password status"><span>At least 1 Number (0...9)</span></p>
+                    <p><img src="./assets/close.png" alt="password status"><span>At least 1 special character</span></p>
+                    <p><img src="./assets/close.png" alt="password status"><span>At least 8 characters in length</span>
+                    </p>
+                </div>
+                <button class="signUpBtn" type="submit">Get Started Now</button>
+            </form>
+            <div class="divider">
+                <hr>
+                <p> OR </p>
+                <hr>
+            </div>
+            <section class="altLoginOptions">
+                <button type="submit"><img src="./assets/google.png" alt="Google Logo">Continue with Google</button>
+                <button class="enterpriseBtn" type="submit">
+                    <div>
+                        <img src="./assets/enterprise.svg" alt="Enterprise">Your Enterprise email(SSO)
+                    </div>
+                    <img src="./assets/right-arrow-accented.svg" alt="arrow">
+                </button>
+            </section>
+            <hr>
+            <section class="altAccessOptions">
+                <a href="./reset-password.html">Forgot Password</a>
+                <p class="signUpPrompt"><span>Have an account?</span><a href="./index.html">Sign In <img
+                            src="./assets/right-arrow.svg" alt="arrow"></a></p>
+            </section>
+        </div>
     </main>
 </body>
 

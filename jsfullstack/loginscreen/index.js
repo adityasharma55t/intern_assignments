@@ -1,6 +1,7 @@
 // New password verification code
 const passwordInput = document.getElementById('password');
 const passwordChecks = document.querySelectorAll('.passwordChecks p');
+const passwordChecksContainer = document.querySelector('.passwordChecks');
 const exclamationIcon = document.getElementById('exclamationIcon');
 const passwordToggler = document.getElementById("passwordToggler");
 
@@ -9,8 +10,14 @@ const close = './assets/close.png';
 const eye = './assets/eye.svg';
 const eyeSlash = './assets/eyeSlash.svg';
 
+let viewChecks = false;
 //Event Listener to verify if password meets criteria
 passwordInput.addEventListener('input', () => {
+
+    viewChecks = true;
+    if(viewChecks == true){
+        passwordChecksContainer.classList.remove('hidden');
+    }
     let password = passwordInput.value;
     console.log(password);
     const lowerCaseRegex = /[a-z]/;
