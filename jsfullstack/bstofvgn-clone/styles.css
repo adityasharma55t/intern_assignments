@@ -1,7 +1,11 @@
+/* ROOT SECTION */
+
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/* NAVBAR SECTION */
 
 nav {
   background-color: rgb(0, 0, 0);
@@ -39,6 +43,8 @@ li,
   vertical-align: middle;
 }
 
+/* HERO SECTION */
+
 section.hero {
   display: flex;
   justify-content: space-around;
@@ -59,6 +65,8 @@ section.hero {
   width: 10em;
   height: 12em;
 }
+
+/* CALL FOR ACTION SECTION */
 
 section.callForAction {
   background-color: rgb(0, 0, 0);
@@ -83,6 +91,8 @@ section.callForAction {
     background-color: rgb(146, 172, 91);
   }
 }
+
+/* BROWSE SECTION */
 
 section.browse {
   text-align: center;
@@ -120,6 +130,8 @@ img {
   width: 8em;
 }
 
+/* LATEST MEALS SECTION */
+
 section.latest {
   background-color: rgb(245, 245, 245);
   padding: 3em;
@@ -150,6 +162,8 @@ section.latest {
     color: rgb(146, 172, 91);
   }
 }
+
+/* RECIPE SEARCH SECTION */
 
 section.recipeSearch {
   background-color: rgb(168, 173, 155);
@@ -212,6 +226,8 @@ section.recipeSearch {
   }
 }
 
+/* BREAKFAST IDEAS SECTION */
+
 section.breakfastIdeas {
   padding: 2em 4em;
   h2 {
@@ -244,6 +260,8 @@ section.breakfastIdeas {
     object-fit: cover;
   }
 }
+
+/* WELCOME SECTION */
 
 section.welcomeMsg {
   background-color: rgb(0, 0, 0);
@@ -284,6 +302,8 @@ section.welcomeMsg {
   }
 }
 
+/* CULTURE TUESDAY SECTION  */
+
 section.cultureTuesday {
   background-color: rgb(236, 236, 236);
   padding: 1em;
@@ -312,6 +332,8 @@ section.cultureTuesday {
     margin: auto 1em;
   }
 }
+
+/* SHOPPING */
 
 section.shopping {
   text-align: center;
@@ -348,6 +370,8 @@ section.shopping {
   background-color: rgb(192, 218, 134);
 }
 
+/* DESSERTS SECTION */
+
 section.desserts {
   background-color: rgb(236, 236, 236);
   padding: 1em;
@@ -380,6 +404,8 @@ section.desserts {
     color: rgb(146, 172, 91);
   }
 }
+
+/* COOKBOOK SECTION */
 
 section.cookbook {
   background-color: rgb(0, 0, 0);
@@ -428,6 +454,9 @@ section.cookbook {
     background-color: rgb(192, 218, 134);
   }
 }
+
+/* RESTAURANTS SECTION */
+
 section.restaurants {
   font-family: Georgia, "Times New Roman", Times, serif;
   padding: 1em;
@@ -461,6 +490,8 @@ section.restaurants {
     object-fit: cover;
   }
 }
+
+/* TESTIMONIALS SECTION */
 
 section.testimonials {
   background-color: rgb(236, 236, 236);
@@ -504,6 +535,8 @@ section.testimonials {
   background-color: rgb(245, 245, 245);
   margin-top: 1em;
 }
+
+/* FOOTER SECTION */
 
 footer {
   padding: 2em;
