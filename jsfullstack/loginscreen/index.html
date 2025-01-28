@@ -25,8 +25,11 @@
         <label for="email">Email Address*</label>
         <input type="email" name="email" id="email" required />
         <label for="password">Password*</label>
-        <input type="password" name="password" id="password" required />
-
+        <div class="passwordContainer">
+            <input type="password" name="password" id="password" required></input>
+            <img id="passwordToggler" src="./assets/eye.svg" alt="password toggler">
+            <img class="hidden" id="exclamationIcon" src="./assets/exclamation.png" alt="exclamation">
+        </div>
         <button class="loginBtn" type="submit">Log in</button>
       </form>
       <div class="divider">
@@ -51,7 +54,7 @@
       <section class="altAccessOptions">
         <a href="./reset-password.html">Forgot Password</a>
         <p class="signUpPrompt">
-          <span>Don't have an account?</span
+          <span>Don't have an account? </span
           ><a href="./create-account.html"
             >Sign Up <img src="./assets/right-arrow.svg" alt="arrow"
           /></a>

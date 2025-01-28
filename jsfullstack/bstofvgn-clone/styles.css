@@ -1,0 +1,517 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 10% auto;
+}
+.bestofveganlogo {
+  width: 15em;
+  height: auto;
+  object-fit: contain;
+}
+.searchIcon {
+  height: 1em;
+  width: 1em;
+  background-color: #fff;
+}
+
+ul {
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+li,
+.searchIcon {
+  margin: 1%;
+  vertical-align: middle;
+}
+
+section.hero {
+  display: flex;
+  justify-content: space-around;
+}
+
+.heroText {
+  width: 40%;
+  padding: 3em 1em 1em;
+}
+
+.mealsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.meal img {
+  width: 10em;
+  height: 12em;
+}
+
+section.callForAction {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 2em 1em 3em;
+  text-align: center;
+}
+
+.callForAction form {
+  margin: 0 auto;
+
+  input,
+  button {
+    padding: 1em;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: rgb(192, 218, 134);
+  }
+  button:hover {
+    background-color: rgb(146, 172, 91);
+  }
+}
+
+section.browse {
+  text-align: center;
+}
+
+.browse img {
+  width: 3em;
+  height: 3em;
+}
+
+.browse .mealContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(236, 236, 236);
+  margin: auto 1em;
+  padding: 1em 2em 2em;
+  gap: 1em;
+}
+
+.browse .mealContainer .meal {
+  img {
+    background-color: rgb(255, 255, 255);
+    height: 4.5em;
+    width: 4.5em;
+    border-radius: 5px;
+  }
+  p {
+    font-size: x-small;
+  }
+}
+
+img {
+  height: 10em;
+  width: 8em;
+}
+
+section.latest {
+  background-color: rgb(245, 245, 245);
+  padding: 3em;
+  text-align: center;
+}
+
+.latestMealsContainer {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  text-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  gap: 10px;
+  justify-content: center;
+  padding: 1em;
+}
+
+.latestMeal {
+  width: 14em;
+  margin: 1em;
+  img {
+    min-width: 14em;
+    min-height: 14em;
+    object-fit: cover;
+  }
+  p {
+    font-size: x-large;
+    color: rgb(146, 172, 91);
+  }
+}
+
+section.recipeSearch {
+  background-color: rgb(168, 173, 155);
+  text-align: center;
+  padding: 2em 4em;
+}
+
+.recipeSearch {
+  h4 {
+    color: rgb(68, 73, 57);
+    font-weight: lighter;
+  }
+  h2 {
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+  }
+  p {
+    font-size: x-large;
+    color: rgb(68, 73, 57);
+  }
+  article {
+    background-color: rgb(209, 211, 201);
+    border-radius: 10px;
+    font-size: x-large;
+    color: rgb(68, 73, 57);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    word-spacing: normal;
+    line-height: 2em;
+    padding: 1em;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2em 0;
+  }
+
+  input {
+    flex-grow: 1;
+    padding: 1.5em;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(68, 73, 57);
+    border-radius: 10px 0px 0px 10px;
+    font-size: 16px;
+  }
+
+  button {
+    img {
+      width: 1.5em;
+      height: 1.5em;
+    }
+    background-color: rgb(209, 211, 201);
+    color: white;
+    border: 1px solid rgb(68, 73, 57);
+    border-left: 0;
+    border-radius: 0px 10px 10px 0px;
+    padding: 1.65em 4em;
+    cursor: pointer;
+  }
+}
+
+section.breakfastIdeas {
+  padding: 2em 4em;
+  h2 {
+    display: inline-block;
+    background-color: rgb(245, 245, 245);
+    color: rgb(145, 171, 90);
+    font-size: xx-large;
+    padding: 1em 2em 0;
+    margin: 0 1em;
+  }
+}
+
+.breakfastIdeasContainer {
+  background-color: rgb(245, 245, 245);
+  text-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  gap: 1em;
+  justify-content: center;
+  margin: 0;
+  padding: 1em;
+}
+
+.breakfastIdea {
+  width: 15em;
+  img {
+    width: 100%;
+    height: 20em;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
+
+section.welcomeMsg {
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: max-content;
+  grid-auto-rows: 0;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 2em 2em;
+}
+
+.welcomeImageContainer {
+  background-color: aqua;
+  grid-area: 1 / 1 / 2 / 5;
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.textContent {
+  grid-area: 1/ 5 / 2 / 9;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  color: rgb(68, 73, 57);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: large;
+  line-height: 2;
+  padding: 1em;
+  button {
+    border: none;
+    padding: 1em;
+    background-color: rgb(209, 211, 201);
+  }
+}
+
+section.cultureTuesday {
+  background-color: rgb(236, 236, 236);
+  padding: 1em;
+}
+
+.cultureTuesdayContainer {
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 1em;
+}
+
+.cultureTuesdayItem {
+  background-color: rgb(236, 236, 236);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+  }
+  p {
+    margin: auto 1em;
+  }
+}
+
+section.shopping {
+  text-align: center;
+}
+
+.shoppingItemsContainer {
+  background-color: rgb(236, 236, 236);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 1em;
+}
+
+.shoppingItem {
+  grid-row: 1 span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+  margin: 0 1em;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.kitchenToolsButton {
+  margin: 1em;
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(192, 218, 134);
+}
+
+section.desserts {
+  background-color: rgb(236, 236, 236);
+  padding: 1em;
+}
+
+.dessertsContainer {
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 0;
+}
+
+.dessert {
+  background-color: rgb(236, 236, 236);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: left;
+  img {
+    width: 12em;
+    height: 18em;
+    object-fit: cover;
+  }
+  p {
+    padding: 0.5em;
+    font-size: large;
+    color: rgb(146, 172, 91);
+  }
+}
+
+section.cookbook {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 1em;
+}
+
+.cookbookContainer {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: max-content;
+  grid-auto-rows: 0;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 2em 2em;
+}
+
+.cookbookImageContainer {
+  background-color: rgb(168, 173, 155);
+  grid-area: 1 / 5 / 2 / 9;
+  img {
+    width: 50%;
+    height: auto;
+    padding: 9em 2em 9em;
+    object-fit: cover;
+  }
+}
+
+.aboutCookbook {
+  grid-area: 1 / 1 / 2 / 6;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  color: rgb(68, 73, 57);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: left;
+  font-size: large;
+  line-height: 2;
+  padding: 1em;
+  button {
+    margin: 1em;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(192, 218, 134);
+  }
+}
+section.restaurants {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 1em;
+  h2 {
+    text-align: left;
+    margin: 1em 1em 0;
+    padding: 0.5em 0.5em 0;
+    display: inline-block;
+    color: rgb(145, 171, 90);
+    background-color: rgb(245, 245, 245);
+  }
+}
+
+.restaurantsContainer {
+  display: flex;
+  padding: 1em;
+  background-color: rgb(245, 245, 245);
+  margin: 0 1em 1em;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.75em;
+  width: 10em;
+  img {
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+  }
+}
+
+section.testimonials {
+  background-color: rgb(236, 236, 236);
+}
+
+.testimonialsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.testimonial {
+  background-color: rgb(255, 255, 255);
+  margin: 1em 0.5em 2em;
+  margin-top: 3.5em;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  width: 8em;
+  height: 20em;
+  padding: 1em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  .review {
+    margin-bottom: 2em;
+  }
+  .reviewer {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    margin-bottom: 2em;
+  }
+
+  button {
+    background: none;
+    border: 1px solid rgb(146, 172, 91);
+    color: rgb(145, 171, 90);
+    padding: 1em;
+    border-radius: 5px;
+  }
+}
+
+.testimonial.odd {
+  background-color: rgb(245, 245, 245);
+  margin-top: 1em;
+}
+
+footer {
+  padding: 2em;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  img {
+    height: auto;
+    width: 10em;
+  }
+}
