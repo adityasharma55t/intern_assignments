@@ -20,6 +20,31 @@ h4 {
   text-decoration-thickness: 5px;
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+}
+
+/* TOPBAR SECTION*/
+
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  .pageLinks {
+    a {
+      margin: 2px 10px;
+    }
+  }
+  .socialLinks {
+    img {
+      width: 1.75em;
+      margin: 2px 5px;
+    }
+  }
+}
 /* NAVBAR SECTION */
 
 nav {
@@ -399,7 +424,7 @@ section.cultureTuesday {
   padding: 1em 10em;
   h2 {
     display: inline-block;
-    font-size: large;
+    font-size: xx-large;
     color: rgb(145, 171, 90);
     background-color: rgb(255, 255, 255);
     margin: 1em 0.5em 0;
@@ -502,10 +527,18 @@ section.desserts {
   background-color: rgb(168, 173, 155);
   padding: 1em;
   h2 {
+    padding: 0 0.5em;
+    display: inline-block;
     font-size: xx-large;
     color: rgb(145, 171, 90);
     background-color: rgb(255, 255, 255);
-    margin: 1em 1em 0;
+    margin: 0em 1em 0;
+    img {
+      width: 0.5em;
+      height: 1em;
+      margin: 0em 0.5em 0 0;
+      padding: 0;
+    }
   }
 }
 
@@ -545,7 +578,7 @@ section.cookbook {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   text-align: center;
-  padding: 1em;
+  padding: 1em 8em;
 }
 
 .cookbookContainer {
@@ -556,23 +589,23 @@ section.cookbook {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 2em 2em;
+  padding: 0 6em;
 }
 
 .cookbookImageContainer {
   background-color: rgb(168, 173, 155);
-  grid-area: 1 / 5 / 7 / 9;
+  grid-area: 1 / 4 / 7 / 9;
   img {
-    width: 40%;
+    width: 50%;
     height: auto;
-    padding: 20em 2em 20em;
+    padding: 10em 2em 10em;
     margin-left: 2em;
     object-fit: cover;
   }
 }
 
 .aboutCookbook {
-  grid-area: 2 / 1 / 6 / 6;
+  grid-area: 2 / 1 / 6 / 5;
   text-align: center;
   background-color: rgb(245, 245, 245);
   color: rgb(68, 73, 57);
@@ -604,11 +637,17 @@ section.restaurants {
   h2 {
     text-align: left;
     margin: 1em 1em 0;
-    padding: 0.5em 0.5em 0;
+    padding: 0 0.5em;
     display: inline-block;
     font-size: xx-large;
     color: rgb(145, 171, 90);
     background-color: rgb(245, 245, 245);
+    img {
+      width: 0.5em;
+      height: 1em;
+      margin: 0em 0.5em 0 0;
+      padding: 0;
+    }
   }
 }
 
@@ -730,4 +769,13 @@ footer {
 .aboutUs p {
   font-size: 0.9em;
   color: rgb(145, 171, 90);
+}
+
+.socialLinks {
+  img::src {
+    width: 10em;
+    color: white;
+    stroke: white;
+    fill: white;
+  }
 }
