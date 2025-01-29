@@ -1,19 +1,34 @@
 /* ROOT SECTION */
 
-body {
-  margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+:root {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+body {
+  margin: 0;
+}
+
+input,
+button {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h4 {
+  font-weight: 100;
+  text-decoration: underline;
+  text-decoration-color: rgb(145, 171, 90);
+  text-decoration-thickness: 5px;
+  text-align: center;
+}
 /* NAVBAR SECTION */
 
 nav {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  padding: 10% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 8em;
 }
 .bestofveganlogo {
   width: 15em;
@@ -35,6 +50,7 @@ ul {
   justify-content: center;
   align-items: center;
   align-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 li,
@@ -48,11 +64,21 @@ li,
 section.hero {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding: 1em 8em;
 }
 
 .heroText {
-  width: 40%;
-  padding: 3em 1em 1em;
+  margin: 1em 4em;
+  h1 {
+    font-size: 4em;
+  }
+  h6 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1em;
+  }
 }
 
 .mealsContainer {
@@ -61,9 +87,37 @@ section.hero {
   grid-template-rows: 1fr 1fr;
 }
 
-.meal img {
-  width: 10em;
-  height: 12em;
+.meal {
+  position: relative;
+  margin: 0.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 12em;
+  a {
+    text-decoration: none;
+  }
+  img {
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+  }
+  div {
+    position: absolute;
+    bottom: 0em;
+    left: 10%;
+    width: 80%;
+    border-radius: 5px 5px 0 0;
+    color: rgb(146, 172, 91);
+    text-align: center;
+    font-size: large;
+    background-color: white;
+    z-index: 10;
+    p {
+      padding: 0.5em;
+      margin: 0;
+    }
+  }
 }
 
 /* CALL FOR ACTION SECTION */
@@ -73,11 +127,19 @@ section.callForAction {
   color: rgb(255, 255, 255);
   padding: 2em 1em 3em;
   text-align: center;
+  h2 {
+    font-size: 2em;
+    margin: 1em auto 1.5em;
+  }
 }
 
 .callForAction form {
+  font-size: 1.5em;
   margin: 0 auto;
-
+  width: 100%;
+  input {
+    width: 16em;
+  }
   input,
   button {
     padding: 1em;
@@ -85,6 +147,7 @@ section.callForAction {
   }
 
   button {
+    width: 10em;
     background-color: rgb(192, 218, 134);
   }
   button:hover {
@@ -96,28 +159,29 @@ section.callForAction {
 
 section.browse {
   text-align: center;
-}
-
-.browse img {
-  width: 3em;
-  height: 3em;
+  h2 {
+    color: rgb(145, 171, 90);
+  }
 }
 
 .browse .mealContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   background-color: rgb(236, 236, 236);
-  margin: auto 1em;
-  padding: 1em 2em 2em;
+  margin: auto;
+  padding: 2em 2em 2em;
   gap: 1em;
 }
 
 .browse .mealContainer .meal {
+  width: 4.5em;
   img {
     background-color: rgb(255, 255, 255);
     height: 4.5em;
-    width: 4.5em;
+    width: 100%;
     border-radius: 5px;
   }
   p {
@@ -125,36 +189,51 @@ section.browse {
   }
 }
 
-img {
-  height: 10em;
-  width: 8em;
-}
-
 /* LATEST MEALS SECTION */
 
 section.latest {
   background-color: rgb(245, 245, 245);
   padding: 3em;
-  text-align: center;
+
+  h2 {
+    text-align: left;
+    display: inline-block;
+    color: rgb(145, 171, 90);
+    font-size: xx-large;
+    background-color: rgb(255, 255, 255);
+    margin: 0 1em;
+    padding: 0 1em;
+    img {
+      width: 0.5em;
+      height: 1em;
+      margin: 0em 0.5em 0 0;
+      padding: 0;
+    }
+  }
+  img {
+    height: 10em;
+    width: 8em;
+  }
 }
 
 .latestMealsContainer {
+  font-weight: bold;
+  text-align: center;
   background-color: rgb(255, 255, 255);
   text-align: center;
   text-wrap: wrap;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   justify-content: center;
   padding: 1em;
 }
 
 .latestMeal {
-  width: 14em;
-  margin: 1em;
   img {
-    min-width: 14em;
-    min-height: 14em;
+    min-width: 100%;
+    width: 100%;
+    min-height: 20em;
     object-fit: cover;
   }
   p {
@@ -168,7 +247,7 @@ section.latest {
 section.recipeSearch {
   background-color: rgb(168, 173, 155);
   text-align: center;
-  padding: 2em 4em;
+  padding: 2em 26em;
 }
 
 .recipeSearch {
@@ -178,27 +257,28 @@ section.recipeSearch {
   }
   h2 {
     color: rgb(255, 255, 255);
-    font-size: xx-large;
+    font-size: x-large;
   }
   p {
-    font-size: x-large;
+    font-size: large;
     color: rgb(68, 73, 57);
   }
   article {
     background-color: rgb(209, 211, 201);
     border-radius: 10px;
-    font-size: x-large;
+    font-size: large;
     color: rgb(68, 73, 57);
     font-family: Georgia, "Times New Roman", Times, serif;
     word-spacing: normal;
     line-height: 2em;
     padding: 1em;
+    margin: 1em 3em;
   }
   form {
     display: flex;
     align-items: center;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0 4em;
     padding: 2em 0;
   }
 
@@ -229,34 +309,39 @@ section.recipeSearch {
 /* BREAKFAST IDEAS SECTION */
 
 section.breakfastIdeas {
-  padding: 2em 4em;
+  padding: 2em 16em;
   h2 {
     display: inline-block;
     background-color: rgb(245, 245, 245);
     color: rgb(145, 171, 90);
     font-size: xx-large;
-    padding: 1em 2em 0;
-    margin: 0 1em;
+    padding: 0 2em 0;
+    margin: 0 auto;
+    img {
+      width: 0.5em;
+      height: 1em;
+      margin: 0em 0.5em 0 0;
+      padding: 0;
+    }
   }
 }
 
 .breakfastIdeasContainer {
   background-color: rgb(245, 245, 245);
+  font-weight: bold;
   text-wrap: wrap;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
-  gap: 1em;
+  grid-template-columns: repeat(6, 1fr);
   justify-content: center;
   margin: 0;
   padding: 1em;
 }
 
 .breakfastIdea {
-  width: 15em;
+  margin: 1em 0.5em;
   img {
     width: 100%;
-    height: 20em;
-    aspect-ratio: 3 / 4;
+    height: 10em;
     object-fit: cover;
   }
 }
@@ -267,27 +352,25 @@ section.welcomeMsg {
   background-color: rgb(0, 0, 0);
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: max-content;
+  grid-template-rows: repeat(6, 1fr);
   grid-auto-rows: 0;
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 2em 2em;
+  padding: 1em;
 }
 
 .welcomeImageContainer {
-  background-color: aqua;
-  grid-area: 1 / 1 / 2 / 5;
+  grid-area: 1 / 2 / 9 / 6;
   img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1;
+    height: 50em;
     object-fit: cover;
   }
 }
 
 .textContent {
-  grid-area: 1/ 5 / 2 / 9;
+  grid-area: 2/ 5 / 6/ 8;
   text-align: center;
   background-color: rgb(245, 245, 245);
   color: rgb(68, 73, 57);
@@ -295,10 +378,17 @@ section.welcomeMsg {
   font-size: large;
   line-height: 2;
   padding: 1em;
+  h2 {
+    font-size: xx-large;
+  }
+  p {
+    font-size: large;
+  }
   button {
     border: none;
+    font-size: medium;
     padding: 1em;
-    background-color: rgb(209, 211, 201);
+    background-color: rgb(145, 171, 90);
   }
 }
 
@@ -306,13 +396,28 @@ section.welcomeMsg {
 
 section.cultureTuesday {
   background-color: rgb(236, 236, 236);
-  padding: 1em;
+  padding: 1em 10em;
+  h2 {
+    display: inline-block;
+    font-size: large;
+    color: rgb(145, 171, 90);
+    background-color: rgb(255, 255, 255);
+    margin: 1em 0.5em 0;
+    padding: 0 0.5em;
+    img {
+      width: 0.5em;
+      height: 1em;
+      margin: 0em 0.5em 0 0;
+      padding: 0;
+    }
+  }
 }
 
 .cultureTuesdayContainer {
   background-color: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 1em;
   padding: 1em;
 }
@@ -324,12 +429,14 @@ section.cultureTuesday {
   justify-content: center;
   align-items: center;
   img {
-    width: 15em;
-    height: 15em;
+    width: 8em;
+    height: 8em;
     object-fit: cover;
   }
   p {
     margin: auto 1em;
+    font-weight: bold;
+    font-size: 1.3em;
   }
 }
 
@@ -337,6 +444,14 @@ section.cultureTuesday {
 
 section.shopping {
   text-align: center;
+  padding: 1em 16em;
+  h2 {
+    font-size: xx-large;
+    color: rgb(145, 171, 90);
+  }
+  .shoppingSubTitle {
+    font-size: large;
+  }
 }
 
 .shoppingItemsContainer {
@@ -360,6 +475,17 @@ section.shopping {
     height: auto;
     object-fit: cover;
   }
+  p {
+    font-weight: bold;
+    font-size: large;
+    color: rgb(145, 171, 90);
+  }
+  button {
+    font-size: large;
+    background-color: rgb(255, 255, 255);
+    padding: 0.75em 1em;
+    border-radius: 5px;
+  }
 }
 
 .kitchenToolsButton {
@@ -373,16 +499,23 @@ section.shopping {
 /* DESSERTS SECTION */
 
 section.desserts {
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(168, 173, 155);
   padding: 1em;
+  h2 {
+    font-size: xx-large;
+    color: rgb(145, 171, 90);
+    background-color: rgb(255, 255, 255);
+    margin: 1em 1em 0;
+  }
 }
 
 .dessertsContainer {
   background-color: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1em;
-  padding: 0;
+  padding: 1em 12em;
 }
 
 .dessert {
@@ -394,14 +527,15 @@ section.desserts {
   align-content: center;
   text-align: left;
   img {
-    width: 12em;
-    height: 18em;
+    width: 10em;
+    height: 16em;
     object-fit: cover;
   }
   p {
     padding: 0.5em;
-    font-size: large;
     color: rgb(146, 172, 91);
+    font-weight: bold;
+    font-size: large;
   }
 }
 
@@ -417,7 +551,7 @@ section.cookbook {
 .cookbookContainer {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: max-content;
+  grid-template-rows: repeat(6, 1fr);
   grid-auto-rows: 0;
   justify-content: center;
   align-content: center;
@@ -427,25 +561,32 @@ section.cookbook {
 
 .cookbookImageContainer {
   background-color: rgb(168, 173, 155);
-  grid-area: 1 / 5 / 2 / 9;
+  grid-area: 1 / 5 / 7 / 9;
   img {
-    width: 50%;
+    width: 40%;
     height: auto;
-    padding: 9em 2em 9em;
+    padding: 20em 2em 20em;
+    margin-left: 2em;
     object-fit: cover;
   }
 }
 
 .aboutCookbook {
-  grid-area: 1 / 1 / 2 / 6;
+  grid-area: 2 / 1 / 6 / 6;
   text-align: center;
   background-color: rgb(245, 245, 245);
   color: rgb(68, 73, 57);
   font-family: Georgia, "Times New Roman", Times, serif;
   text-align: left;
-  font-size: large;
+  font-size: x-large;
   line-height: 2;
   padding: 1em;
+  h2 {
+    color: rgb(145, 171, 90);
+  }
+  p {
+    font-size: large;
+  }
   button {
     margin: 1em;
     padding: 1em;
@@ -465,6 +606,7 @@ section.restaurants {
     margin: 1em 1em 0;
     padding: 0.5em 0.5em 0;
     display: inline-block;
+    font-size: xx-large;
     color: rgb(145, 171, 90);
     background-color: rgb(245, 245, 245);
   }
@@ -472,6 +614,8 @@ section.restaurants {
 
 .restaurantsContainer {
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
   padding: 1em;
   background-color: rgb(245, 245, 245);
   margin: 0 1em 1em;
@@ -483,11 +627,14 @@ section.restaurants {
   align-items: center;
   justify-content: flex-start;
   margin: 0.75em;
-  width: 10em;
+  width: 13em;
   img {
-    width: 10em;
-    height: 10em;
+    width: 100%;
+    height: 13em;
     object-fit: cover;
+  }
+  p {
+    font-size: x-large;
   }
 }
 
@@ -495,6 +642,13 @@ section.restaurants {
 
 section.testimonials {
   background-color: rgb(236, 236, 236);
+  h2 {
+    font-size: xx-large;
+    color: rgb(145, 171, 90);
+    text-align: center;
+    padding: 1rem;
+    margin: 1em 1em 0;
+  }
 }
 
 .testimonialsContainer {
@@ -545,6 +699,35 @@ footer {
   color: rgb(255, 255, 255);
   img {
     height: auto;
-    width: 10em;
+    width: 25em;
   }
+}
+.logos img {
+  width: 10em;
+}
+
+.aboutUs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em;
+  text-align: left;
+  .whoWeAre p {
+    color: rgb(255, 255, 255);
+    line-height: 2;
+  }
+}
+.aboutUs div {
+  h2 {
+    font-size: xx-large;
+  }
+}
+.aboutUs h5 {
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.aboutUs p {
+  font-size: 0.9em;
+  color: rgb(145, 171, 90);
 }
