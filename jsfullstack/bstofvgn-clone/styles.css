@@ -6,6 +6,8 @@
 
 body {
   margin: 0;
+  grid-auto-flow: row !important;
+  grid-auto-rows: auto !important;
 }
 
 input,
@@ -53,7 +55,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 8em;
+  padding: 1em;
+  max-width: 1290px;
 }
 .bestofveganlogo {
   width: 15em;
@@ -61,9 +64,8 @@ nav {
   object-fit: contain;
 }
 .searchIcon {
-  height: 1em;
-  width: 1em;
-  background-color: #fff;
+  height: 2em;
+  width: 2em;
 }
 
 ul {
@@ -76,6 +78,9 @@ ul {
   align-items: center;
   align-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  li {
+    padding: 0.5em 1.5em;
+  }
 }
 
 li,
@@ -84,19 +89,59 @@ li,
   vertical-align: middle;
 }
 
+.menuIcon {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .topBar {
+    display: none;
+  }
+
+  nav {
+    display: grid;
+    grid-template-columns: 8fr 1fr 1fr;
+    grid-auto-rows: 0;
+    padding: 2em;
+    justify-content: center;
+    justify-items: start;
+    align-items: center;
+    padding: 3em 1em;
+  }
+  .searchIcon {
+    grid-column: 2 / 3;
+    justify-self: self-end;
+    width: 1.5em;
+  }
+  .menuIcon {
+    display: inline;
+    grid-column: 3 / 4;
+    justify-self: self-end;
+    width: 1.5em;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
 /* HERO SECTION */
 
 section.hero {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
   align-items: center;
-  padding: 1em 8em;
+  padding: 1em 0;
+  margin: 0 auto;
+  max-width: 1290px;
+  background-color: rgb(245, 245, 245);
 }
 
 .heroText {
-  margin: 1em 4em;
+  margin: 1em 1em;
   h1 {
-    font-size: 4em;
+    font-size: 5em;
   }
   h6 {
     font-size: 1.5em;
@@ -118,13 +163,13 @@ section.hero {
   text-align: center;
   display: flex;
   flex-direction: column;
-  width: 12em;
   a {
     text-decoration: none;
   }
   img {
     width: 100%;
-    height: 15em;
+    height: 100%;
+    aspect-ratio: 3/4;
     object-fit: cover;
   }
   div {
@@ -141,6 +186,31 @@ section.hero {
     p {
       padding: 0.5em;
       margin: 0;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  section.hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+
+    .meal img {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  section.hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    .mealsContainer {
+      grid-template-columns: 1fr 1fr;
+      .meal img {
+        aspect-ratio: 4 / 3;
+      }
     }
   }
 }
@@ -180,11 +250,26 @@ section.callForAction {
   }
 }
 
+@media (max-width: 768px) {
+  section.callForAction {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      input,
+      button {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
 /* BROWSE SECTION */
 
 section.browse {
   text-align: center;
   h2 {
+    font-size: xx-large;
     color: rgb(145, 171, 90);
   }
 }
@@ -219,6 +304,7 @@ section.browse {
 section.latest {
   background-color: rgb(245, 245, 245);
   padding: 3em;
+  position: relative;
 
   h2 {
     text-align: left;
@@ -238,6 +324,12 @@ section.latest {
   img {
     height: 10em;
     width: 8em;
+  }
+
+  h4 {
+    position: absolute;
+    top: 2em;
+    right: 4em;
   }
 }
 
@@ -267,12 +359,23 @@ section.latest {
   }
 }
 
+@media (max-width: 768px) {
+  .latestMealsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .latest h4 {
+    position: static !important;
+  }
+}
+
 /* RECIPE SEARCH SECTION */
 
 section.recipeSearch {
   background-color: rgb(168, 173, 155);
   text-align: center;
-  padding: 2em 26em;
+  padding: 2em;
 }
 
 .recipeSearch {
@@ -297,23 +400,25 @@ section.recipeSearch {
     word-spacing: normal;
     line-height: 2em;
     padding: 1em;
-    margin: 1em 3em;
+    margin: 0 auto;
+    max-width: 1250px;
   }
   form {
     display: flex;
     align-items: center;
-    max-width: 100%;
-    margin: 0 4em;
+    width: 100%;
+    margin: 0 auto;
     padding: 2em 0;
+    max-width: 1290px;
   }
 
   input {
-    flex-grow: 1;
+    flex: 1 1;
     padding: 1.5em;
     background-color: rgb(245, 245, 245);
     border: 1px solid rgb(68, 73, 57);
     border-radius: 10px 0px 0px 10px;
-    font-size: 16px;
+    font-size: 1em;
   }
 
   button {
@@ -334,7 +439,8 @@ section.recipeSearch {
 /* BREAKFAST IDEAS SECTION */
 
 section.breakfastIdeas {
-  padding: 2em 16em;
+  padding: 2em;
+  position: relative;
   h2 {
     display: inline-block;
     background-color: rgb(245, 245, 245);
@@ -348,6 +454,11 @@ section.breakfastIdeas {
       margin: 0em 0.5em 0 0;
       padding: 0;
     }
+  }
+  h4 {
+    position: absolute;
+    top: 1.5em;
+    right: 16em;
   }
 }
 
@@ -366,8 +477,33 @@ section.breakfastIdeas {
   margin: 1em 0.5em;
   img {
     width: 100%;
-    height: 10em;
+    height: auto;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  section.breakfastIdeas {
+    h4 {
+      position: static !important;
+    }
+  }
+  .breakfastIdeasContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  section.breakfastIdeas {
+    h4 {
+      position: static !important;
+    }
+  }
+  .breakfastIdeasContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
   }
 }
 
@@ -387,9 +523,10 @@ section.welcomeMsg {
 
 .welcomeImageContainer {
   grid-area: 1 / 2 / 9 / 6;
+  margin: 1em;
   img {
     width: 100%;
-    height: 50em;
+    height: auto;
     object-fit: cover;
   }
 }
@@ -403,6 +540,8 @@ section.welcomeMsg {
   font-size: large;
   line-height: 2;
   padding: 1em;
+  height: 100%;
+  margin: 1em;
   h2 {
     font-size: xx-large;
   }
@@ -417,11 +556,26 @@ section.welcomeMsg {
   }
 }
 
+@media (max-width: 768px) {
+  section.welcomeMsg {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  .textContent {
+    grid-area: 1 / 1 / 5 / 2;
+  }
+  .welcomeImageContainer {
+    grid-area: 1 / 1 / 9 / 2;
+  }
+}
+
 /* CULTURE TUESDAY SECTION  */
 
 section.cultureTuesday {
   background-color: rgb(236, 236, 236);
   padding: 1em 10em;
+  position: relative;
   h2 {
     display: inline-block;
     font-size: xx-large;
@@ -435,6 +589,11 @@ section.cultureTuesday {
       margin: 0em 0.5em 0 0;
       padding: 0;
     }
+  }
+  h4 {
+    position: absolute;
+    top: 1.5em;
+    right: 10em;
   }
 }
 
@@ -454,8 +613,8 @@ section.cultureTuesday {
   justify-content: center;
   align-items: center;
   img {
-    width: 8em;
-    height: 8em;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   p {
@@ -465,11 +624,38 @@ section.cultureTuesday {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  section.cultureTuesday {
+    padding: 1em;
+    h4 {
+      position: static !important;
+    }
+  }
+  .cultureTuesdayContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  section.cultureTuesday {
+    padding: 1em;
+    h4 {
+      position: static !important;
+    }
+  }
+  .cultureTuesdayContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+  }
+}
+
 /* SHOPPING */
 
 section.shopping {
   text-align: center;
-  padding: 1em 16em;
+  padding: 1em;
+  max-width: 1290px;
   h2 {
     font-size: xx-large;
     color: rgb(145, 171, 90);
@@ -488,7 +674,6 @@ section.shopping {
 }
 
 .shoppingItem {
-  grid-row: 1 span 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -497,7 +682,7 @@ section.shopping {
   margin: 0 1em;
   img {
     width: 100%;
-    height: auto;
+    height: 20em;
     object-fit: cover;
   }
   p {
@@ -521,11 +706,19 @@ section.shopping {
   background-color: rgb(192, 218, 134);
 }
 
+@media (max-width: 1024px) {
+  .shoppingItemsContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
 /* DESSERTS SECTION */
 
 section.desserts {
   background-color: rgb(168, 173, 155);
-  padding: 1em;
+  padding: 2em 8em;
+  position: relative;
   h2 {
     padding: 0 0.5em;
     display: inline-block;
@@ -540,6 +733,11 @@ section.desserts {
       padding: 0;
     }
   }
+  h4 {
+    position: absolute;
+    top: 1.5em;
+    right: 8em;
+  }
 }
 
 .dessertsContainer {
@@ -548,7 +746,7 @@ section.desserts {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 1em;
-  padding: 1em 12em;
+  padding: 1em 1em;
 }
 
 .dessert {
@@ -560,8 +758,8 @@ section.desserts {
   align-content: center;
   text-align: left;
   img {
-    width: 10em;
-    height: 16em;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   p {
@@ -572,13 +770,40 @@ section.desserts {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  section.desserts {
+    padding: 1em;
+    h4 {
+      position: static !important;
+    }
+  }
+  .dessertsContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  section.desserts {
+    padding: 1em;
+    h4 {
+      position: static !important;
+    }
+  }
+  .dessertsContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+
 /* COOKBOOK SECTION */
 
 section.cookbook {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   text-align: center;
-  padding: 1em 8em;
+  padding: 1em;
+  max-width: 1290px;
 }
 
 .cookbookContainer {
@@ -589,7 +814,7 @@ section.cookbook {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 0 6em;
+  padding: 0;
 }
 
 .cookbookImageContainer {
@@ -629,11 +854,26 @@ section.cookbook {
   }
 }
 
+@media (max-width: 768px) {
+  .cookbookContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0;
+  }
+  .cookbookImageContainer {
+    grid-area: 1 / 1 / 4 / 2;
+  }
+  .aboutCookbook {
+    grid-area: 2 / 1 / 7 / 2;
+  }
+}
+
 /* RESTAURANTS SECTION */
 
 section.restaurants {
   font-family: Georgia, "Times New Roman", Times, serif;
   padding: 1em;
+  position: relative;
   h2 {
     text-align: left;
     margin: 1em 1em 0;
@@ -648,6 +888,11 @@ section.restaurants {
       margin: 0em 0.5em 0 0;
       padding: 0;
     }
+  }
+  h4 {
+    position: absolute;
+    top: 2em;
+    right: 4em;
   }
 }
 
@@ -666,14 +911,29 @@ section.restaurants {
   align-items: center;
   justify-content: flex-start;
   margin: 0.75em;
-  width: 13em;
+
   img {
     width: 100%;
-    height: 13em;
+    height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
   }
   p {
     font-size: x-large;
+  }
+}
+
+@media (max-width: 768px) {
+  section.restaurants {
+    h4 {
+      position: static !important;
+    }
+  }
+
+  .restaurantsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
@@ -682,7 +942,7 @@ section.restaurants {
 section.testimonials {
   background-color: rgb(236, 236, 236);
   h2 {
-    font-size: xx-large;
+    font-size: xxx-large;
     color: rgb(145, 171, 90);
     text-align: center;
     padding: 1rem;
@@ -691,24 +951,42 @@ section.testimonials {
 }
 
 .testimonialsContainer {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  column-gap: 1em;
+  max-width: 1290px;
+  padding: 6em;
 }
 
 .testimonial {
+  position: relative;
   background-color: rgb(255, 255, 255);
-  margin: 1em 0.5em 2em;
-  margin-top: 3.5em;
+  margin-top: 4.5em;
   text-align: center;
   border: 1px solid black;
   border-radius: 10px 10px 0 0;
-  width: 8em;
-  height: 20em;
+  height: 100%;
   padding: 1em;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  .imgContainer {
+    position: absolute;
+    top: -1.5em;
+    left: 5.5em;
+    width: 15%;
+    padding: 5%;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+  }
+  img {
+    background-color: rgb(0, 0, 0);
+  }
   .review {
     margin-bottom: 2em;
+    line-height: 2;
+    font-size: x-large;
   }
   .reviewer {
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -729,6 +1007,31 @@ section.testimonials {
   margin-top: 1em;
 }
 
+@media (max-width: 768px) {
+  .testimonialsContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 3em;
+    width: 90%;
+    padding: 2em;
+  }
+
+  .testimonial {
+    margin: 1em 0;
+    .imgContainer {
+      width: 2em;
+      padding: 1em;
+      left: 45%;
+    }
+    .review {
+      margin: 1em 0;
+    }
+    .reviewer {
+      margin: 0 0 1em;
+    }
+  }
+}
+
 /* FOOTER SECTION */
 
 footer {
@@ -747,9 +1050,10 @@ footer {
 
 .aboutUs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1em;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 2em;
+  padding: 1em;
   text-align: left;
   .whoWeAre p {
     color: rgb(255, 255, 255);
@@ -767,15 +1071,30 @@ footer {
 }
 
 .aboutUs p {
+  img {
+    width: 0.9em;
+    margin-right: 0.2em;
+  }
   font-size: 0.9em;
   color: rgb(145, 171, 90);
 }
 
+.aboutUs p,
+.aboutUs img {
+  vertical-align: middle;
+}
+
 .socialLinks {
-  img::src {
-    width: 10em;
-    color: white;
-    stroke: white;
-    fill: white;
+  img {
+    width: 2em;
+    margin: 0.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutUs {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0;
   }
 }
