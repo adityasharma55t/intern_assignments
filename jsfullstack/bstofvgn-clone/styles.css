@@ -6,8 +6,6 @@
 
 body {
   margin: 0;
-  grid-auto-flow: row !important;
-  grid-auto-rows: auto !important;
 }
 
 input,
@@ -25,6 +23,25 @@ h4 {
 
 a {
   text-decoration: none;
+}
+
+.bookmarkHeading {
+  display: inline-block;
+  text-align: left;
+  color: rgb(145, 171, 90);
+  font-size: x-large;
+  background-color: rgb(255, 255, 255);
+  margin: 0 1em;
+  padding: 0 2em 0 1em;
+  .bookmark {
+    width: 1em;
+    height: auto;
+    margin: 0em 0.5em 0 0;
+    padding: 0;
+  }
+  h2 {
+    display: inline-block;
+  }
 }
 
 /* TOPBAR SECTION*/
@@ -139,7 +156,6 @@ section.hero {
   align-items: center;
   padding: 1em 0;
   margin: 0 auto;
-  max-width: 1290px;
   background-color: rgb(245, 245, 245);
 }
 
@@ -173,25 +189,23 @@ section.hero {
   }
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
     aspect-ratio: 3/4;
     object-fit: cover;
   }
-  div {
+  p {
     position: absolute;
     bottom: 0em;
-    left: 10%;
+    left: 9%;
     width: 80%;
     border-radius: 5px 5px 0 0;
     color: rgb(146, 172, 91);
     text-align: center;
     font-size: large;
     background-color: white;
+    padding: 0.5em;
+    margin: 0;
     z-index: 10;
-    p {
-      padding: 0.5em;
-      margin: 0;
-    }
   }
 }
 
@@ -279,7 +293,7 @@ section.browse {
   }
 }
 
-.browse .mealContainer {
+.mealContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -287,20 +301,25 @@ section.browse {
   align-content: center;
   background-color: rgb(236, 236, 236);
   margin: auto;
-  padding: 2em 2em 2em;
+  padding: 2em;
   gap: 1em;
-}
-
-.browse .mealContainer .meal {
-  width: 4.5em;
-  img {
-    background-color: rgb(255, 255, 255);
-    height: 4.5em;
-    width: 100%;
-    border-radius: 5px;
-  }
-  p {
-    font-size: x-small;
+  .meal {
+    width: 5em;
+    height: 6.5em;
+    img {
+      background-color: rgb(255, 255, 255);
+      height: 5em;
+      width: 100%;
+      border-radius: 5px;
+    }
+    p {
+      color: rgb(68, 73, 57);
+      width: 4.5em;
+      padding: 0;
+      margin: 0 auto;
+      background: none;
+      font-size: small;
+    }
   }
 }
 
@@ -310,27 +329,10 @@ section.latest {
   background-color: rgb(245, 245, 245);
   padding: 3em;
   position: relative;
-
-  h2 {
-    text-align: left;
-    display: inline-block;
-    color: rgb(145, 171, 90);
-    font-size: xx-large;
-    background-color: rgb(255, 255, 255);
-    margin: 0 1em;
-    padding: 0 1em;
-    img {
-      width: 0.5em;
-      height: 1em;
-      margin: 0em 0.5em 0 0;
-      padding: 0;
-    }
-  }
   img {
     height: 10em;
     width: 8em;
   }
-
   h4 {
     position: absolute;
     top: 2em;
@@ -381,9 +383,6 @@ section.recipeSearch {
   background-color: rgb(168, 173, 155);
   text-align: center;
   padding: 2em;
-}
-
-.recipeSearch {
   h4 {
     color: rgb(68, 73, 57);
     font-weight: lighter;
@@ -446,19 +445,8 @@ section.recipeSearch {
 section.breakfastIdeas {
   padding: 2em;
   position: relative;
-  h2 {
-    display: inline-block;
+  .bookmarkHeading {
     background-color: rgb(245, 245, 245);
-    color: rgb(145, 171, 90);
-    font-size: xx-large;
-    padding: 0 2em 0;
-    margin: 0 auto;
-    img {
-      width: 0.5em;
-      height: 1em;
-      margin: 0em 0.5em 0 0;
-      padding: 0;
-    }
   }
   h4 {
     position: absolute;
@@ -580,20 +568,6 @@ section.cultureTuesday {
   background-color: rgb(236, 236, 236);
   padding: 1em 10em;
   position: relative;
-  h2 {
-    display: inline-block;
-    font-size: xx-large;
-    color: rgb(145, 171, 90);
-    background-color: rgb(255, 255, 255);
-    margin: 1em 0.5em 0;
-    padding: 0 0.5em;
-    img {
-      width: 0.5em;
-      height: 1em;
-      margin: 0em 0.5em 0 0;
-      padding: 0;
-    }
-  }
   h4 {
     position: absolute;
     top: 1.5em;
@@ -724,20 +698,6 @@ section.desserts {
   background-color: rgb(168, 173, 155);
   padding: 2em 8em;
   position: relative;
-  h2 {
-    padding: 0 0.5em;
-    display: inline-block;
-    font-size: xx-large;
-    color: rgb(145, 171, 90);
-    background-color: rgb(255, 255, 255);
-    margin: 0em 1em 0;
-    img {
-      width: 0.5em;
-      height: 1em;
-      margin: 0em 0.5em 0 0;
-      padding: 0;
-    }
-  }
   h4 {
     position: absolute;
     top: 1.5em;
@@ -880,20 +840,8 @@ section.restaurants {
   font-family: Georgia, "Times New Roman", Times, serif;
   padding: 1em;
   position: relative;
-  h2 {
-    text-align: left;
-    margin: 1em 1em 0;
-    padding: 0 0.5em;
-    display: inline-block;
-    font-size: xx-large;
-    color: rgb(145, 171, 90);
+  .bookmarkHeading {
     background-color: rgb(245, 245, 245);
-    img {
-      width: 0.5em;
-      height: 1em;
-      margin: 0em 0.5em 0 0;
-      padding: 0;
-    }
   }
   h4 {
     position: absolute;
@@ -1065,29 +1013,28 @@ footer {
     color: rgb(255, 255, 255);
     line-height: 2;
   }
-}
-.aboutUs div {
-  h2 {
-    font-size: xx-large;
+  div {
+    h2 {
+      font-size: xx-large;
+    }
   }
-}
-.aboutUs h5 {
-  font-size: medium;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-.aboutUs p {
+  h5 {
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  p {
+    img {
+      width: 0.9em;
+      margin-right: 0.2em;
+    }
+    font-size: 0.9em;
+    color: rgb(145, 171, 90);
+  }
+  p,
   img {
-    width: 0.9em;
-    margin-right: 0.2em;
+    vertical-align: middle;
   }
-  font-size: 0.9em;
-  color: rgb(145, 171, 90);
-}
-
-.aboutUs p,
-.aboutUs img {
-  vertical-align: middle;
 }
 
 .socialLinks {
@@ -1102,5 +1049,18 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
     gap: 0;
+  }
+}
+
+@media (min-width: 1290px) {
+  section.hero,
+  section.breakfastIdeas,
+  section.cultureTuesday,
+  section.desserts,
+  section.restaurants {
+    padding: 1em 30em;
+    h4 {
+      padding-right: 30em;
+    }
   }
 }
