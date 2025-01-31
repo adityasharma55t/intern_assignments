@@ -193,7 +193,7 @@ section.hero {
     aspect-ratio: 3/4;
     object-fit: cover;
   }
-  p {
+  span {
     position: absolute;
     bottom: 0em;
     left: 9%;
@@ -312,7 +312,7 @@ section.browse {
       width: 100%;
       border-radius: 5px;
     }
-    p {
+    span {
       color: rgb(68, 73, 57);
       width: 4.5em;
       padding: 0;
@@ -360,7 +360,7 @@ section.latest {
     min-height: 20em;
     object-fit: cover;
   }
-  p {
+  span {
     font-size: x-large;
     color: rgb(146, 172, 91);
   }
@@ -474,13 +474,15 @@ section.breakfastIdeas {
     aspect-ratio: 3 / 4;
     object-fit: cover;
   }
+  span {
+    color: rgb(0, 0, 0);
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  section.breakfastIdeas {
-    h4 {
-      position: static !important;
-    }
+  section.breakfastIdeas h4 {
+    position: static;
+    right: auto;
   }
   .breakfastIdeasContainer {
     grid-template-columns: 1fr 1fr 1fr;
@@ -584,18 +586,20 @@ section.cultureTuesday {
   padding: 1em;
 }
 
-.cultureTuesdayItem {
+.cultureTuesdayItem a {
   background-color: rgb(236, 236, 236);
   display: grid;
   grid-template-columns: 1fr 2fr;
   justify-content: center;
   align-items: center;
+  height: 100%;
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  p {
+  span {
+    color: rgb(0, 0, 0);
     margin: auto 1em;
     font-weight: bold;
     font-size: 1.3em;
@@ -605,9 +609,10 @@ section.cultureTuesday {
 @media (min-width: 769px) and (max-width: 1024px) {
   section.cultureTuesday {
     padding: 1em;
-    h4 {
-      position: static !important;
-    }
+  }
+  section.cultureTuesday h4 {
+    position: static;
+    right: auto;
   }
   .cultureTuesdayContainer {
     grid-template-columns: 1fr 1fr;
@@ -618,9 +623,10 @@ section.cultureTuesday {
 @media (max-width: 768px) {
   section.cultureTuesday {
     padding: 1em;
-    h4 {
-      position: static !important;
-    }
+  }
+  section.cultureTuesday h4 {
+    position: static;
+    right: auto;
   }
   .cultureTuesdayContainer {
     grid-template-columns: 1fr;
@@ -664,7 +670,7 @@ section.shopping {
     height: 20em;
     object-fit: cover;
   }
-  p {
+  span {
     font-weight: bold;
     font-size: large;
     color: rgb(145, 171, 90);
@@ -714,7 +720,7 @@ section.desserts {
   padding: 1em 1em;
 }
 
-.dessert {
+.dessert a {
   background-color: rgb(236, 236, 236);
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -722,12 +728,14 @@ section.desserts {
   align-items: center;
   align-content: center;
   text-align: left;
+  height: 100%;
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
     object-fit: cover;
   }
-  p {
+  span {
     padding: 0.5em;
     color: rgb(146, 172, 91);
     font-weight: bold;
@@ -738,9 +746,10 @@ section.desserts {
 @media (min-width: 769px) and (max-width: 1024px) {
   section.desserts {
     padding: 1em;
-    h4 {
-      position: static !important;
-    }
+  }
+  section.desserts h4 {
+    position: static;
+    right: auto;
   }
   .dessertsContainer {
     grid-template-columns: 1fr 1fr;
@@ -751,9 +760,10 @@ section.desserts {
 @media (max-width: 768px) {
   section.desserts {
     padding: 1em;
-    h4 {
-      position: static !important;
-    }
+  }
+  section.desserts h4 {
+    position: static;
+    right: auto;
   }
   .dessertsContainer {
     grid-template-columns: 1fr;
@@ -865,6 +875,7 @@ section.restaurants {
   align-items: center;
   justify-content: flex-start;
   margin: 0.75em;
+  width: fit-content;
 
   img {
     width: 100%;
@@ -872,16 +883,16 @@ section.restaurants {
     aspect-ratio: 1;
     object-fit: cover;
   }
-  p {
+  span {
     font-size: x-large;
+    color: rgb(0, 0, 0);
   }
 }
 
 @media (max-width: 768px) {
-  section.restaurants {
-    h4 {
-      position: static !important;
-    }
+  section.restaurants h4 {
+    position: static;
+    right: auto;
   }
 
   .restaurantsContainer {
@@ -1023,15 +1034,18 @@ footer {
     font-size: medium;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-  p {
+  a {
     img {
       width: 0.9em;
       margin-right: 0.2em;
     }
-    font-size: 0.9em;
-    color: rgb(145, 171, 90);
+    span {
+      text-decoration: none;
+      font-size: 0.9em;
+      color: rgb(145, 171, 90);
+    }
   }
-  p,
+  span,
   img {
     vertical-align: middle;
   }
@@ -1052,6 +1066,8 @@ footer {
   }
 }
 
+/* The below code is under scrutiny for feasibility */
+
 @media (min-width: 1290px) {
   section.hero,
   section.breakfastIdeas,
@@ -1062,5 +1078,17 @@ footer {
     h4 {
       padding-right: 30em;
     }
+  }
+}
+
+@media (min-width: 1290px) and (max-width: 2000px) {
+  section.hero h4,
+  section.breakfastIdeas h4,
+  section.cultureTuesday h4,
+  section.desserts h4,
+  section.restaurants h4 {
+    padding: 1em;
+    position: static;
+    text-align: center;
   }
 }
