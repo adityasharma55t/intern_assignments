@@ -1,5 +1,3 @@
-# JS Notes
-
 This page is created to note down my current JS Learning, majorly from Akshay Saini’s Namaste JavaScript Playlist.
 
 # Introduction
@@ -8,7 +6,7 @@ JavaScript is a **_synchronous, single-threaded_** language.
 
 Everything in JS happens inside the “Execution Context”. It has two components:
 
-![image.png](JS%20Notes%2018cc11cffdb680709c2cd5ac3f9fc747/image.png)
+![image.png](attachment:35189d19-13e7-48c8-b0bc-c1d788477635:image.png)
 
 1. **Memory component or Variable Environment**
 
@@ -57,7 +55,7 @@ Variables are used to store data that can be referenced and manipulated in a pro
 ### **Key Differences:**
 
 - **Scope:**
-  - **`let`** and **`const`** are **block-scoped**, meaning they are only accessible within the block `{}` where they are defined (e.g., inside loops or conditionals).
+  - **`let`** and **`const`** are **block-scoped**, meaning they are only accessible within the block `{}` where they are defined (e.g., inside loops or conditionals). They are not initialized in the Global Scope but in a separate memory space (can be seen as Script in browser sources).
   - **`var`** is **function-scoped**, meaning it is accessible throughout the entire function in which it is declared, even if declared inside a block.
   ### Example with Block Scope:
   ```jsx
@@ -169,7 +167,7 @@ When a JS Program is run, it creates a Global Execution Context for the program.
 
 At the base of the call stack is the Global Execution Context. All nested contexts are added to the top of the stack and are managed in the Last In First Out (LIFO) Order. The call stack is terminated when the Global Execution Context is completely executed, i.e., at the end of the program
 
-![image.png](JS%20Notes%2018cc11cffdb680709c2cd5ac3f9fc747/image%201.png)
+![image.png](attachment:b6208e4c-13a0-4090-900a-3139fa36e80f:image.png)
 
 # Hoisting
 
@@ -424,3 +422,166 @@ outerFunction();
 2. **Enclosing (Outer) Scope**: If the variable isn't found in the local scope, JavaScript looks in the **outer scope** (the scope where the function is defined).
 3. **Global Scope**: If the variable isn’t found in the outer scopes, JavaScript looks in the **global scope** (e.g., the `window` object in browsers).
 4. **Return `undefined`**: If the variable is not found in any scope, JavaScript returns `undefined`.
+
+# Shadowing
+
+**Shadowing** in JavaScript occurs when a variable declared in an inner scope (like a block or function) has the same name as a variable in the outer scope. The inner variable "shadows" or "overrides" the outer variable within its scope, meaning the inner variable takes precedence within that block or function.
+
+Let's break down the examples in your code:
+
+### 1. **Using `let` (Block-scoped variables)**
+
+```jsx
+let a = 10;
+{
+  let a = 20;
+  console.log(a); // Outputs: 20
+}
+console.log(a); // Outputs: 10
+```
+
+- **Explanation**: In this case, the `let` variable inside the block shadows the `let` variable outside the block. Both variables are separate and exist in different scopes (the block scope and the outer scope). The `console.log` inside the block refers to the inner `a`, which is `20`, while the outer `a` remains `10` after the block.
+
+### 2. **Using `var` (Function-scoped variables)**
+
+```jsx
+const b = 30;
+{
+  var b = 10;
+  console.log(b);
+}
+console.log(b);
+```
+
+- **Explanation**: This code results in an error. The reason is that `var` is **function-scoped** (or globally scoped if declared outside a function). During **hoisting**, the `var b` declaration is moved to the top of the scope, and thus the second `b` (declared inside the block) interferes with the first one. This results in unexpected behavior or errors when you try to redeclare `var` in the same scope.
+
+### 3. **Using `var` and `let` Together**
+
+```jsx
+var c = 50;
+{
+  let c = 40;
+  console.log(c); // Outputs: 40
+}
+console.log(c); // Outputs: 50
+```
+
+- **Explanation**: Here, the `let` inside the block shadows the `var` outside the block. Since `let` is block-scoped, the inner `c` (with value `40`) is separate from the outer `c` (with value `50`). The `let` inside the block doesn't affect the `var` outside it, so the `console.log(c)` outside the block outputs `50`.
+
+# Closures
+
+A function bundled together with its surrounding state or along with its lexical scope is called a closure. Functions maintain their lexical scope. When a closure function is returned, it is returned along with its lexical scope.
+
+The lexical scope is not limited only to the immediate parent, but the entire hierarchy of functions available in the lexical scope.
+
+A **closure** is a function that "remembers" its lexical scope, even after the outer function has finished executing. In simpler terms, a closure is a function bundled with its surrounding state (variables, parameters) and the environment in which it was created. This allows the inner function to access variables from the outer function even when the outer function has finished executing.
+
+### Key Points:
+
+- **Lexical Scope**: The scope in which a function is declared. Functions in JavaScript retain access to variables from their lexical scope.
+- **Closure**: When a function is returned from another function, it "captures" the lexical scope from where it was created and can still access those variables even after the outer function finishes executing.
+
+The scope isn't limited to just the immediate parent function. It can access the entire hierarchy of functions available in the lexical scope, creating what is known as a **closure chain**.
+
+### Example 1: Returning a Closure
+
+In the first example, a function `x()` returns another function `y()`, which uses a variable from its lexical scope (`a`).
+
+```jsx
+function x() {
+  let a = 1;
+  console.log(33);
+  return function y() {
+    console.log(a); // 'a' is from the lexical scope of x
+  };
+}
+x(); // Calls the function but doesn't capture the returned closure
+let z = x(); // 'z' now stores the closure function 'y'
+console.log(z); // Logs the closure function
+z(); // Executes 'y()' and outputs the value of 'a'
+```
+
+### Output:
+
+```
+33  // From the first call to x()
+33  // From the second call to x()
+ƒ y() {
+  console.log(a);
+}  // This is the closure function
+1  // Output from the closure function y(), which remembers 'a' from x()
+
+```
+
+- The **closure** here is the function `y()` returned by `x()`. It maintains access to the variable `a` from its lexical scope, even though `x()` has finished executing.
+
+### Example 2: Assigning Functions to Variables
+
+In this example, the function `p()` doesn't return anything, but we assign it to variable `r`. Since `p()` doesn't return a function, `r` simply references the entire function `p`.
+
+```jsx
+function p() {
+  let c = 1;
+  console.log(33);
+  function q() {
+    console.log(c);
+  }
+}
+p(); // Calls p() and logs 33
+let r = p; // Assigns function p to variable r
+console.log(r); // Logs the function p
+r(); // Executes r, which is function p(), but does not return a value
+```
+
+### Output:
+
+```
+33  // From calling p()
+ƒ p() {    // Shows the entire function p()
+  let c = 1;
+  console.log(33);
+  function q() {
+    console.log(c);
+  }
+}
+33  // Logs from calling p(), but no value is returned
+
+```
+
+- **Note**: Since `p()` does not return anything, `r` simply references the entire function `p`. If `p()` were to return a function (like `q()`), that returned function would form a closure.
+
+### Example 3: Closure Without Dependency
+
+If a variable from an outer function is not used in the inner function, it doesn't form a closure, because the inner function doesn't depend on the outer function's lexical scope.
+
+```jsx
+function outer() {
+  let a = 1;
+  console.log(a);
+  return function inner() {
+    return 54 + a; // Uses 'a' from the outer function's lexical scope
+  };
+}
+let close = outer();
+console.log(close); // Logs the returned function inner
+console.log(close()); // Calls the closure function and accesses 'a' from outer
+```
+
+### Output:
+
+```
+1  // Output from the outer function, showing 'a'
+ƒ inner() {   // Logs the closure function 'inner'
+  return 54 + a;
+}
+55  // Output from calling inner(), which has access to 'a' from the outer function
+
+```
+
+- In this case, the inner function `inner()` **forms a closure** because it relies on the variable `a` from its outer lexical scope (from the `outer()` function).
+
+### Conclusion:
+
+- **Closures** allow inner functions to "remember" and access variables from their outer function’s lexical scope, even after the outer function finishes execution.
+- A function **only forms a closure** if it depends on variables from its outer scope.
+- **Lexical scope** isn't limited to just the immediate parent but includes the entire chain of scopes available when the function was created.
