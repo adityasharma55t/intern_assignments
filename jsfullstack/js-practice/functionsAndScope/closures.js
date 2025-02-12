@@ -76,3 +76,24 @@ console.log(close());
 //                  return 54 + a;
 //              }
 // index.js:10 55
+
+/* 
+The below code prints 6 6 6 6 6 instead of 1 2 3 4 5 as expected. 
+This is because setTimeout delays the program execution and given
+that var is function scoped, the variable i at that point contains the latest value of i*/
+for (var i = 1; i <= 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+
+/*
+To prevent this, we can use let variable as it is block scoped, 
+therefore a new space in memory is allocated for each iteration 
+of i, thus the closure gets the value of i for that particular iteration */
+
+for (let i = 1; i <= 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, i * 1000);
+}
