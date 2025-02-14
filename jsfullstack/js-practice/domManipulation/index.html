@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Event Handling</title>
+    <style>
+      #outerDiv {
+        width: 300px;
+        height: 200px;
+        background-color: lightcoral;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #innerDiv {
+        width: 150px;
+        height: 100px;
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript DOM Manipulation & Events</h1>
+
+    <!-- Button -->
+    <button id="myButton">Click Me</button>
+
+    <!-- Paragraph -->
+    <p class="myText">Original Text</p>
+
+    <!-- Input Field -->
+    <input type="text" id="myInput" placeholder="Type something..." />
+
+    <!-- Form -->
+    <form id="myForm">
+      <input type="text" name="username" placeholder="Enter your name" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Event Bubbling & Capturing Example -->
+    <div id="outerDiv">
+      Outer DIV
+      <div id="innerDiv">Inner DIV</div>
+    </div>
+
+    <!-- Link JavaScript File -->
+    <script src="./index.js"></script>
+  </body>
+</html>
