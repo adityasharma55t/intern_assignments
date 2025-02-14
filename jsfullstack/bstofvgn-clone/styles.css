@@ -55,6 +55,7 @@ a {
   .pageLinks {
     a {
       margin: 2px 10px;
+      color: rgb(0, 0, 0);
     }
   }
   .socialLinks {
@@ -1035,6 +1036,7 @@ footer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   a {
+    display: block;
     img {
       width: 0.9em;
       margin-right: 0.2em;
