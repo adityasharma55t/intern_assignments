@@ -1067,7 +1067,7 @@ footer {
 }
 
 /* The below code is under scrutiny for feasibility */
-
+/* 
 @media (min-width: 1290px) {
   section.hero,
   section.breakfastIdeas,
@@ -1091,4 +1091,4 @@ footer {
     position: static;
     text-align: center;
   }
-}
+} */
