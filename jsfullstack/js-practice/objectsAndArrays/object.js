@@ -1,59 +1,142 @@
-// 1. **Object Literals & Properties**
-// An object literal is a simple way of defining an object using curly braces `{}` and key-value pairs.
+// ===========================
+// 1. Creating Objects
+// ===========================
+
+// Object Literal
 const person = {
-  name: "John Doe",
+  name: "John",
   age: 30,
-  occupation: "Software Developer",
-};
-console.log(person.name); // Outputs: John Doe
-console.log(person["age"]); // Outputs: 30
-
-// Properties can be accessed using dot notation or bracket notation.
-
-// 2. **Object Methods**
-// JavaScript provides built-in methods to interact with objects, such as Object.keys(), Object.values(), and Object.entries().
-
-// **Object.keys()**: Returns an array of the object's own property names (keys).
-const keys = Object.keys(person);
-console.log(keys); // Outputs: [ 'name', 'age', 'occupation' ]
-
-// **Object.values()**: Returns an array of the object's own property values.
-const values = Object.values(person);
-console.log(values); // Outputs: [ 'John Doe', 30, 'Software Developer' ]
-
-// **Object.entries()**: Returns an array of the object's own key-value pairs.
-const entries = Object.entries(person);
-console.log(entries); // Outputs: [ ['name', 'John Doe'], ['age', 30], ['occupation', 'Software Developer'] ]
-
-// 3. **Object Destructuring**
-// Destructuring is a shorthand for extracting properties from an object and assigning them to variables.
-
-// Destructuring with object properties
-const { name, age, occupation } = person;
-console.log(name); // Outputs: John Doe
-console.log(age); // Outputs: 30
-console.log(occupation); // Outputs: Software Developer
-
-// Destructuring with renamed variables
-const { name: fullName, age: yearsOld } = person;
-console.log(fullName); // Outputs: John Doe
-console.log(yearsOld); // Outputs: 30
-
-// Destructuring with default values (if the property does not exist in the object)
-const { salary = 5000 } = person;
-console.log(salary); // Outputs: 5000 (default value, because 'salary' is not in the person object)
-
-// Destructuring nested objects
-const company = {
-  name: "Tech Corp",
-  address: {
-    city: "New York",
-    zip: "10001",
+  city: "New York",
+  greet: function () {
+    return `Hello, my name is ${this.name}`;
   },
 };
 
-const {
-  address: { city, zip },
-} = company;
-console.log(city); // Outputs: New York
-console.log(zip); // Outputs: 10001
+// Object Constructor
+const car = new Object();
+car.brand = "Tesla";
+car.model = "Model S";
+car.year = 2023;
+
+// Object Using a Constructor Function
+function Animal(name, type) {
+  this.name = name;
+  this.type = type;
+}
+const dog = new Animal("Buddy", "Dog");
+
+// ===========================
+// 2. Accessing Object Properties
+// ===========================
+
+console.log(person.name); // "John"
+console.log(person["city"]); // "New York"
+
+// ===========================
+// 3. Modifying Objects
+// ===========================
+
+person.age = 31; // Update property
+person.country = "USA"; // Add new property
+delete person.city; // Remove property
+
+// ===========================
+// 4. Object Methods
+// ===========================
+
+// 4.1 Object.keys(obj) – Get All Keys
+console.log(Object.keys(person)); // ["name", "age", "greet", "country"]
+
+// 4.2 Object.values(obj) – Get All Values
+console.log(Object.values(person)); // ["John", 31, function, "USA"]
+
+// 4.3 Object.entries(obj) – Get Key-Value Pairs
+console.log(Object.entries(person));
+// [["name", "John"], ["age", 31], ["greet", function], ["country", "USA"]]
+
+// 4.4 Object.assign(target, source) – Copy Properties
+const target = { a: 1 };
+const source = { b: 2, c: 3 };
+const merged = Object.assign(target, source);
+console.log(merged); // { a: 1, b: 2, c: 3 }
+//Here, the merge and target variables point to the same location
+
+// 4.5 Object.freeze(obj) – Prevent Modifications
+Object.freeze(person);
+person.age = 40; // ❌ No effect, as object is frozen
+console.log(person.age); // 31
+
+// 4.6 Object.seal(obj) – Allow Modifications But No New Additions
+const user = { name: "Alice", role: "Admin" };
+Object.seal(user);
+user.role = "User"; // ✅ Allowed
+user.email = "alice@example.com"; // ❌ Not allowed
+console.log(user); // { name: "Alice", role: "User" }
+
+// 4.7 Object.hasOwnProperty(key) – Check Property Existence
+console.log(person.hasOwnProperty("name")); // true
+console.log(person.hasOwnProperty("salary")); // false
+
+// 4.8 Object.fromEntries(array) – Convert Key-Value Array to Object
+const entries = [
+  ["brand", "Tesla"],
+  ["model", "Model 3"],
+];
+const carObject = Object.fromEntries(entries);
+console.log(carObject); // { brand: "Tesla", model: "Model 3" }
+
+// ===========================
+// 5. Looping Through Objects
+// ===========================
+
+// 5.1 Using for...in Loop
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+
+// 5.2 Using Object.keys()
+Object.keys(person).forEach((key) => {
+  console.log(`${key}: ${person[key]}`);
+});
+
+// ===========================
+// 6. Checking if an Object is Empty
+// ===========================
+const emptyObj = {};
+console.log(Object.keys(emptyObj).length === 0); // true
+
+// ===========================
+// 7. Merging Objects
+// ===========================
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // { a: 1, b: 2, c: 3, d: 4 }
+
+// ===========================
+// 8. Object Destructuring
+// ===========================
+const { name, age } = person;
+console.log(name); // "John"
+console.log(age); // 31
+
+// ===========================
+// 9. Object Methods (Shorthand)
+// ===========================
+const userInfo = {
+  firstName: "Alice",
+  lastName: "Doe",
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+console.log(userInfo.fullName()); // "Alice Doe"
+
+// ===========================
+// 10. Converting Object to JSON & Back
+// ===========================
+const jsonString = JSON.stringify(person);
+console.log(jsonString); // '{"name":"John","age":31,"greet":function,"country":"USA"}'
+
+const parsedObject = JSON.parse(jsonString);
+console.log(parsedObject); // { name: "John", age: 31, country: "USA" }

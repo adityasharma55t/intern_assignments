@@ -1,43 +1,22 @@
-const errorHandler = () => {
-  try {
-    var a;
-    console.log(a);
-    throw new SyntaxError("Deliberate Error");
-  } catch (error) {
-    console.log("Error Handled!", error);
-  } finally {
-    console.log("Executed");
-  }
-};
+async function fetchData() {
+  console.log("1️⃣ Fetching user...");
+  await new Promise((resolve) => {
+    console.log("Fetching User Under Process");
+    console.log("55");
 
-errorHandler();
+    setTimeout(() => console.log("ABC"), 3000);
+    resolve(console.log("1st Resolved"));
+  }); // Simulating API call
 
-const typeError = () => {
-  try {
-    const a = 10;
-    a = 30;
-    console.log(a);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    console.log("Executed");
-  }
-};
+  console.log("2️⃣ User fetched ✅");
 
-typeError();
+  console.log("3️⃣ Fetching orders...");
+  await new Promise((resolve) => setTimeout(resolve, 4000)); // Another API call
+  console.log("4️⃣ Orders fetched ✅");
+}
 
-const refError = () => {
-  try {
-    b = 30;
-    console.log(a);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    console.log("Executed");
-  }
-};
-
-refError();
+fetchData();
+console.log("5️⃣ End of script");
 
 // function createCounter() {
 //   let count = 0;
