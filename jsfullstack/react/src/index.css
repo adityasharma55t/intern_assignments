@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Light Mode (Default) */
+:root {
+  --bg-color: white;
+  --text-color: black;
+  --border-color: black;
+  --button-bg: #3b82f6;
+  --button-text: white;
+}
+
+/* Dark Mode */
+.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #c8c8c8;
+  --border-color: white;
+  --button-bg: orange;
+  --button-text: black;
+}
+
+/* Apply the colors */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
